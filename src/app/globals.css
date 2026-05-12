@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import "./revamp.css";
+@import "./theme.css";
+
+/* 
+   GLOBALS.CSS
+   Acts as the entry point. 
+   Core design logic is moved to revamp.css to ensure a single source of truth.
+   Theme system (light/dark) is defined in theme.css.
+*/
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
