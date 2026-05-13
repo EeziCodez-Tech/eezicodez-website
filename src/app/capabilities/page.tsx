@@ -45,7 +45,7 @@ export default function CapabilitiesPage() {
                     { text: 'Legacy system modernization', icon: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z M9 9l3 3-3 3 M15 12h3' },
                     { text: 'Reliability & uptime concerns', icon: 'M22 11.08V12a10 10 0 1 1-5.93-9.14 M22 4L12 14.01l-3-3' }
                   ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-4 text-ink font-semibold text-lg leading-snug !mb-4">
+                    <li key={i} className="need-this-li flex items-center gap-4 text-ink font-semibold text-lg leading-snug !mb-4">
                       <IconBox variant="subtle" size="sm">
                         <Icon path={item.icon} strokeWidth={2.5} size="sm" />
                       </IconBox>
@@ -165,7 +165,7 @@ export default function CapabilitiesPage() {
       {/* CTA */}
       <CapabilitiesCTA
         pill="Get In Touch"
-        title={<>Ready to automate<br className="hidden-mobile" /><span className="text-gradient">your operations?</span></>}
+        title={<>Ready to automate <br className="hidden-mobile" /><span className="text-gradient">your operations?</span></>}
         desc="Automate your business processes with our custom software development services. We sreamline operations for businesses of all sizes and improve efficiency."
       />
     </main>

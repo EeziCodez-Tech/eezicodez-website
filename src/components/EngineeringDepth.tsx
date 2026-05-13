@@ -49,7 +49,7 @@ export default function EngineeringDepth() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" style={{ marginBottom: '100px' }}>
           {depthCards.map((card, i) => (
             <div key={i} className="premium-sub-card-dark group fade-up" style={{ transitionDelay: `${i * 0.1}s` }}>
-              <IconBox variant="premium" size="xl" className="!mb-10 group-hover:bg-brand-blue group-hover:text-white transition-all duration-500">
+              <IconBox variant="premium" size="xl" className="engineering-icons group-hover:bg-brand-blue group-hover:text-white transition-all duration-500">
                 <Icon path={card.icon} size="lg" />
               </IconBox>
               <div className="cap-card-content flex flex-col items-center">

@@ -95,7 +95,7 @@ export default function Header() {
       </header>
 
       {/* Premium Mobile Bottom Navigation (Tab Bar) */}
-      <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-[100] !px-6 !pb-6 !pt-4 bg-[var(--surface-primary)]/80 backdrop-blur-xl border-t border-white/5 shadow-[0_-10px_40px_rgba(0,0,0,0.3)] flex justify-center">
+      <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-[100] !px-3 !pb-6 !pt-4 bg-[var(--surface-primary)]/80 backdrop-blur-xl border-t border-white/5 shadow-[0_-10px_40px_rgba(0,0,0,0.3)] flex justify-center">
         <div className="flex justify-around items-center w-full max-w-lg mx-auto">
           {navLinks.map((link) => {
             const isActive = pathname === link.path;

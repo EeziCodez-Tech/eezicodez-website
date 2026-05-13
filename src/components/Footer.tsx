@@ -18,6 +18,7 @@ export default function Footer() {
                 width={120}
                 height={32}
                 className="footer-logo-img"
+                style={{ width: 'auto' }}
               />
             </Link>
             <p className="footer-desc">

@@ -55,7 +55,7 @@ export default function CaseStudiesPage() {
         <div className="section-container relative z-10 text-center flex flex-col items-center">
           <div className="max-w-6xl mx-auto text-center">
             <h1 className="hero-title fade-up mb-8 leading-tight">Enabling <br /><span className="text-gradient">Real-World Impact</span></h1>
-            <p className="hero-subtext fade-up max-w-2xl mx-auto text-white/60 text-xl font-medium leading-relaxed">
+            <p className="hero-subtext fade-up max-w-2xl mx-auto text-white/60 text-base md:text-xl font-medium leading-relaxed">
               A selection of our most complex engineering challenges and the scalable systems we built to solve them.
             </p>
           </div>
@@ -85,17 +85,17 @@ export default function CaseStudiesPage() {
                 <div className={`lg:col-span-6 ${idx % 2 === 1 ? 'lg:order-1' : ''}`}>
                   <div className="flex flex-col h-full" style={{ gap: '1rem' }}>
                     <span className="text-[var(--brand-blue)] font-bold tracking-[0.2em] uppercase text-[10px] mb-6 block">{project.meta}</span>
-                    <h2 className="text-3xl md:text-5xl font-bold text-[var(--ink)] mb-8 tracking-tight leading-[1.1]">{project.title}</h2>
+                    <h2 className="text-2xl md:text-5xl font-bold text-[var(--ink)] mb-6 md:mb-8 tracking-tight leading-[1.1]">{project.title}</h2>
 
                     <div className="flex flex-wrap gap-3 mb-10">
-                      <div className="bg-[var(--brand-blue-lite)] text-[var(--brand-blue)] !px-5 !py-2 rounded-lg text-xs font-bold uppercase tracking-wider">{project.system}</div>
+                      <div className="bg-[var(--brand-blue-lite)] text-[var(--brand-blue)] !px-1 !py-1 md:!px-5 md:!py-2 rounded-lg text-[10px] md:text-xs font-bold uppercase tracking-wider">{project.system}</div>
                     </div>
 
                     <div className="space-y-10 mb-16 max-w-xl">
-                      <p className="text-[var(--ink-60)] font-medium leading-relaxed text-lg !pb-4">
+                      <p className="text-[var(--ink-60)] font-medium leading-relaxed text-base md:text-lg !pb-4">
                         {project.problem}
                       </p>
-                      <p className="text-[var(--ink-60)] font-medium leading-relaxed opacity-80 border-l-2 border-[var(--brand-blue)] !pl-6">
+                      <p className="text-[var(--ink-60)] font-medium leading-relaxed text-sm md:text-base opacity-80 border-l-2 border-[var(--brand-blue)] !pl-4 md:!pl-6">
                         {project.solution}
                       </p>
                     </div>
@@ -114,7 +114,7 @@ export default function CaseStudiesPage() {
           <div className="mesh-blob blob-2"></div>
         </div>
 
-        <div className="section-container">
+        <div className="section-container complex-cta">
           <div className="cta-glass-card fade-up">
             <div className="cta-highlight"></div>
 
@@ -123,7 +123,7 @@ export default function CaseStudiesPage() {
             </span>
 
             <h2 className="cta-title fade-up fade-up-delay-1">
-              Have a complex<br className="hidden-mobile" />
+              Have a complex <br className="hidden-mobile" />
               <span className="text-gradient">system to build?</span>
             </h2>
 

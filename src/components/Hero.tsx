@@ -12,7 +12,8 @@ export default function Hero() {
       <div className="hero-container">
         <div className="hero-content">
           <h1 className="hero-title">
-            We Build Scalable Systems
+            We Build<br />
+            <span>Scalable Systems</span>
           </h1>
           <p className="hero-subtext hero-subtext-1">
             We design and deliver production-grade software systems<br />across web, mobile, and data infrastructure.

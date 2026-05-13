@@ -216,9 +216,6 @@ export default function ScopingModal({ isOpen, onClose }: ScopingModalProps) {
                       </span>
                     </div>
                   ))}
-                  <div className="scoping-progress-line">
-                    <div className="scoping-progress-fill" style={{ width: `${((step - 1) / (totalSteps - 1)) * 100}%` }} />
-                  </div>
                 </div>
 
                 {/* Step Content */}
@@ -335,11 +332,11 @@ export default function ScopingModal({ isOpen, onClose }: ScopingModalProps) {
                               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                             />
                           </div>
-                          
+
                           <div className="scoping-consent">
                             <label className="scoping-consent-label">
-                              <input 
-                                type="checkbox" 
+                              <input
+                                type="checkbox"
                                 checked={consentGiven}
                                 onChange={(e) => setConsentGiven(e.target.checked)}
                                 className="scoping-consent-checkbox"

@@ -100,7 +100,7 @@ export default function VentureLabPage() {
   return (
     <main className="bg-[#0b0f19] min-h-screen sub-page">
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden !py-12">
+      <section className="relative overflow-hidden !py-8 md:!py-12">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(64,92,163,0.15),transparent_70%)]"></div>
         <div className="section-container relative z-10 text-center flex flex-col items-center">
           <div className="max-w-4xl mx-auto text-center">
@@ -118,11 +118,11 @@ export default function VentureLabPage() {
       </section>
 
       {/* FLAGSHIP SPOTLIGHT: HUBDUCATE */}
-      <section className="!pt-32 pb-24 relative bg-white overflow-hidden">
+      <section className="!pt-16 md:!pt-32 pb-16 md:pb-24 relative bg-white overflow-hidden">
         {/* Seamless Arched Divider */}
         <div className="absolute -top-[2px] left-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none">
           <svg
-            className="relative block w-[calc(100%+5px)] h-[120px] left-1/2 -translate-x-1/2"
+            className="relative block w-[calc(100%+5px)] h-[60px] md:h-[120px] left-1/2 -translate-x-1/2"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1200 120"
             preserveAspectRatio="none"
@@ -152,7 +152,7 @@ export default function VentureLabPage() {
 
                   {/* Status Overlay */}
                   <div className="absolute top-6 left-6 md:top-10 md:left-10">
-                    <div className="bg-brand-blue text-pure-white px-4 py-1.5 md:px-6 md:py-2 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] shadow-xl whitespace-nowrap">
+                    <div className="bg-brand-blue text-pure-white px-3 py-1 md:px-6 md:py-2 rounded-full text-[7px] xs:text-[8px] md:text-[10px] font-black uppercase tracking-[0.15em] md:tracking-[0.3em] shadow-xl whitespace-nowrap">
                       Coming Soon · Alpha Phase
                     </div>
                   </div>
@@ -163,7 +163,7 @@ export default function VentureLabPage() {
             {/* Project Context */}
             <div className="lg:col-span-5 !space-y-6 flex flex-col fade-up">
               <div>
-                <span className="text-[var(--brand-blue)] font-bold text-[10px] uppercase tracking-[0.2em] mb-4 block">Flagship Initiative</span>
+                <span className="text-[var(--brand-blue)] font-black text-[10px] uppercase tracking-[0.2em] mb-4 block">Flagship Initiative</span>
                 <h2 className="text-4xl md:text-6xl font-bold text-dark !my-2 tracking-tight">Hubducate</h2>
                 <p className="text-xl text-dark font-medium leading-relaxed opacity-90">
                   An Integrated Platform for Lifelong Career and Learning Development.
@@ -190,19 +190,19 @@ export default function VentureLabPage() {
       </section>
 
       {/* THE INSIGHT: MARKET ANALYSIS */}
-      <section className="py-40 bg-white/5 border-y border-white/5 relative overflow-hidden">
+      <section className="py-20 md:py-40 bg-white/5 border-y border-white/5 relative overflow-hidden">
         <div className="section-container relative z-10 pt-12">
           <div className="grid grid-cols-1 lg:grid-cols-[0.4fr_0.6fr] xl:grid-cols-[0.35fr_0.65fr] gap-16 items-start">
             <div className="fade-up">
               <span className="section-label">01 · Market Insight</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-white !mb-10 tracking-tight leading-tight">
+              <h2 className="text-2xl md:text-5xl font-bold text-white !mb-10 tracking-tight leading-tight">
                 Why we are building for<br /><span className="text-gradient">the lifelong learner.</span>
               </h2>
               <div className="!space-y-4 !mb-16 min-h-[220px]">
                 {paragraphs.map((para, i) => (
                   <p
                     key={i}
-                    className={`text-xl leading-relaxed transition-colors duration-500 ${activeIndex === i ? 'text-white font-bold' : 'text-white/60 font-medium'
+                    className={`text-base md:text-xl leading-relaxed transition-colors duration-500 ${activeIndex === i ? 'text-white font-bold' : 'text-white/60 font-medium'
                       }`}
                   >
                     {renderParaContent(para, i)}
@@ -214,7 +214,7 @@ export default function VentureLabPage() {
 
             <div className="flex flex-col gap-6 fade-up">
               <div>
-                <span className="text-white font-bold text-[1rem] uppercase tracking-[0.2em] !mb-6 block">The Reality in Nigeria Today</span>
+                <span className="text-white font-bold text-xs md:text-[1rem] uppercase tracking-[0.2em] !mb-6 block">The Reality in Nigeria Today</span>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {[
                     { val: "1.7M+", label: "Students graduate every year", desc: "But the job market can't absorb them.", icon: <path d="M22 10v6M2 10l10-5 10 5-10 5z M6 12v5c3 3 9 3 12 0v-5" /> },
@@ -231,21 +231,21 @@ export default function VentureLabPage() {
                         </Icon>
                       </IconBox>
                       <div>
-                        <div className="text-3xl font-black text-white !mb-3 tracking-tight">{stat.val}</div>
-                        <div className="text-md font-semibold text-white !mb-3 leading-tight">{stat.label}</div>
-                        <div className="text-sm text-white/40 font-medium leading-relaxed">{stat.desc}</div>
+                        <div className="text-xl md:text-3xl font-black text-white !mb-3 tracking-tight">{stat.val}</div>
+                        <div className="text-sm md:text-md font-semibold text-white !mb-3 leading-tight">{stat.label}</div>
+                        <div className="text-xs md:text-sm text-white/40 font-medium leading-relaxed">{stat.desc}</div>
                       </div>
                     </div>
                   ))}
                 </div>
-                <div className="flex flex-wrap items-center gap-x-12 gap-y-6 !pt-12 border-t border-white/5">
-                  <div className="flex items-center gap-4">
+                <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-x-8 gap-y-4 !pt-12 border-t border-white/5">
+                  <div className="flex items-center gap-3">
                     <Icon size="md" className="text-brand-blue" path="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    <span className="text-white/60 font-bold text-[11px] uppercase tracking-widest">The All-in-One Career Companion</span>
+                    <span className="text-white/60 font-bold text-[10px] md:text-[11px] uppercase tracking-wider">The All-in-One Career Companion</span>
                   </div>
-                  <div className="flex flex-wrap items-center gap-y-4 gap-x-6 text-[10px] font-black text-white/30 uppercase tracking-[0.2em]">
+                  <div className="flex flex-wrap items-center gap-y-3 gap-x-4 text-[9px] md:text-[10px] font-black text-white/30 uppercase tracking-widest">
                     {['Discover', 'Learn', 'Get Guided', 'Get Opportunities', 'Grow'].map((step, i) => (
-                      <div key={i} className="flex items-center gap-4 md:gap-6">
+                      <div key={i} className="flex items-center gap-3 md:gap-6">
                         {i !== 0 && <div className="hidden sm:block w-1 h-1 rounded-full bg-white/20"></div>}
                         <span>{step}</span>
                       </div>
@@ -296,7 +296,7 @@ export default function VentureLabPage() {
             <h2 className="section-title text-white">Who we are building for.</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 !px-32">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 !px-6 md:!px-32">
             {[
               { t: "Young Learners", d: "High-school graduates and college students finding their first path." },
               { t: "Career Changers", d: "Professionals developing new skills to meet evolving industry demands." },
@@ -312,8 +312,8 @@ export default function VentureLabPage() {
       </section>
 
       {/* COMING SOON CTA */}
-      <section className="py-32 relative">
-        <div className="section-container relative z-10">
+      <section className="py-16 md:py-32 relative">
+        <div className="section-container complex-cta relative z-10">
           <div className="cta-glass-card text-center flex flex-col items-center">
             <h2 className="text-3xl md:text-5xl font-bold text-white !mb-8 leading-tight">
               Interested in our<br /><span className="text-gradient">in-house pipeline?</span>

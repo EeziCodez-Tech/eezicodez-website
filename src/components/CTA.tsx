@@ -23,7 +23,7 @@ export default function CTA() {
           </span>
 
           <h2 className="cta-title fade-up fade-up-delay-1">
-            Partner With Engineers<br className="hidden-mobile" />
+            Partner With Engineers <br className="hidden-mobile" />
             <span className="text-gradient">Who Build for Scale</span>
           </h2>
 

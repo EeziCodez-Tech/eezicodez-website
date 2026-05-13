@@ -134,6 +134,11 @@ html *::after {
 }
 
 /* ── MAIN DARK BG PAGES → WHITE ── */
+.sub-page {
+  position: relative;
+  overflow-x: hidden;
+}
+
 [data-theme="light"] main[class*="bg-[#0"],
 [data-theme="light"] main[class*="bg-[#05070a]"],
 [data-theme="light"] main[class*="bg-[#0b0f19]"] {

@@ -36,10 +36,10 @@ export default function VentureTeaser() {
 
                 <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end">
                   <div>
-                    <span className="text-[var(--brand-blue)] font-bold text-xs uppercase tracking-widest block mb-2">Spotlight Project</span>
+                    <span className="bg-[var(--brand-blue)] text-pure-white font-black text-[9px] md:text-[10px] uppercase tracking-[0.2em] inline-block !px-1 !py-[.9] rounded !mb-2 shadow-lg">Spotlight Project</span>
                     <h3 className="text-2xl font-bold text-pure-white">Hubducate</h3>
                   </div>
-                  <div className="bg-pure-white-10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-xl text-[10px] font-bold text-pure-white uppercase tracking-widest">
+                  <div className="bg-pure-white-10 backdrop-blur-md border border-white/20 !px-4 !py-2 rounded-xl text-[10px] font-black text-pure-white uppercase tracking-widest">
                     Coming Soon
                   </div>
                 </div>
