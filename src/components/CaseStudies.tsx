@@ -47,12 +47,9 @@ export default function CaseStudies() {
                   {card.desc}
                 </p>
 
-                <div className="w-full bg-brand-blue/5 p-8 rounded-3xl mb-10 group-hover:bg-brand-blue/10 transition-all border border-brand-blue/5"
-                  style={{
-                    padding: "1rem 2rem"
-                  }}>
-                  <span className="text-4xl font-black text-brand-blue block mb-2">{card.metricVal}</span>
-                  <span className="text-[10px] font-bold text-ink uppercase tracking-[0.2em] opacity-40">{card.metricLbl}</span>
+                <div className="w-full bg-brand-blue/5 !px-4 !py-3 md:px-8 md:py-8 rounded-3xl mb-10 group-hover:bg-brand-blue/10 transition-all border border-brand-blue/5">
+                  <span className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-blue block mb-2">{card.metricVal}</span>
+                  <span className="text-[10px] sm:text-xs font-bold text-ink uppercase tracking-[0.2em] opacity-40">{card.metricLbl}</span>
                 </div>
 
                 <Link href="/case-studies" className="inline-flex items-center justify-center gap-3 text-brand-blue font-bold text-sm group-hover:gap-5 transition-all">

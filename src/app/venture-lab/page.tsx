@@ -104,10 +104,10 @@ export default function VentureLabPage() {
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(64,92,163,0.15),transparent_70%)]"></div>
         <div className="section-container relative z-10 text-center flex flex-col items-center">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 !px-4 !py-2 rounded-full !mb-8 fade-up">
+            <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 !px-4 !py-2 rounded-full !mb-8 fade-up hidden-mobile">
               <span className="text-[10px] font-bold text-white uppercase tracking-[0.2em]">EeziCodez Innovation Lab</span>
             </div>
-            <h1 className="hero-title fade-up mb-8 leading-tight">
+            <h1 className="hero-title fade-up mb-4 md:mb-8 leading-tight">
               Building the <br /> <span className="text-gradient">Next Generation</span>
             </h1>
             <p className="hero-subtext fade-up max-w-2xl mx-auto text-white/60 text-xl font-medium leading-relaxed">
@@ -118,7 +118,7 @@ export default function VentureLabPage() {
       </section>
 
       {/* FLAGSHIP SPOTLIGHT: HUBDUCATE */}
-      <section className="!pt-16 md:!pt-32 pb-16 md:pb-24 relative bg-white overflow-hidden">
+      <section className="pt-4 md:pt-32 pb-16 md:pb-24 relative bg-white overflow-hidden">
         {/* Seamless Arched Divider */}
         <div className="absolute -top-[2px] left-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none">
           <svg
@@ -135,7 +135,7 @@ export default function VentureLabPage() {
             />
           </svg>
         </div>
-        <div className="section-container relative z-10 !pt-[30px]">
+        <div className="section-container relative z-10 pt-2 md:!pt-[30px]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
             {/* Visual Preview */}
             <div className="lg:col-span-7 fade-up">

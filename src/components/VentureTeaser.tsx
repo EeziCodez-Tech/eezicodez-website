@@ -8,13 +8,13 @@ export default function VentureTeaser() {
 
       <div className="section-container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          <div className="lg:col-span-5 fade-up">
-            <span className="section-label">06 · Venture Lab</span>
-            <h2 className="text-4xl md:text-6xl font-bold text-[var(--text-primary)] !mb-8 tracking-tight leading-tight">
+          <div className="lg:col-span-5 fade-up text-center lg:text-left">
+            <span className="section-label !text-[10px] sm:!text-xs">06 · Venture Lab</span>
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-[var(--text-primary)] !mb-8 tracking-tight leading-tight">
               Beyond Client<br />
               <span className="text-gradient">Engineering.</span>
             </h2>
-            <p className="text-[var(--text-primary)]/50 text-lg font-medium leading-relaxed !mb-10 max-w-md">
+            <p className="text-[var(--text-primary)]/50 text-sm sm:text-lg font-medium leading-relaxed !mb-10 max-w-md mx-auto lg:mx-0">
               We invest our own resources into building scalable products that solve real-world problems. From EdTech to lifestyle marketplaces, explore what's cooking in our lab.
             </p>
             <Link href="/venture-lab" className="btn btn-primary btn-glow">
@@ -37,9 +37,9 @@ export default function VentureTeaser() {
                 <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end">
                   <div>
                     <span className="bg-[var(--brand-blue)] text-pure-white font-black text-[9px] md:text-[10px] uppercase tracking-[0.2em] inline-block !px-1 !py-[.9] rounded !mb-2 shadow-lg">Spotlight Project</span>
-                    <h3 className="text-2xl font-bold text-pure-white">Hubducate</h3>
+                    <h3 className="text-xl md:text-2xl font-bold text-pure-white">Hubducate</h3>
                   </div>
-                  <div className="bg-pure-white-10 backdrop-blur-md border border-white/20 !px-4 !py-2 rounded-xl text-[10px] font-black text-pure-white uppercase tracking-widest">
+                  <div className="bg-pure-white-10 backdrop-blur-md border border-white/20 !px-4 !py-1 rounded-xl text-[9px] md:text-[10px] font-black text-pure-white uppercase tracking-widest">
                     Coming Soon
                   </div>
                 </div>

@@ -26,7 +26,7 @@ export default function Process() {
           {steps.map((step, i) => (
             <div key={i} className="premium-sub-card-dark group fade-up text-center flex flex-col items-center" style={{ transitionDelay: `${i * 0.1}s` }}>
               <div className="flex items-center justify-center w-full mb-8 relative">
-                <IconBox variant="premium" size="md" className="group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 mx-auto">
+                <IconBox variant="premium" size="md" className="!mb-4 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 mx-auto">
                   <Icon path={step.icon} size="sm" strokeWidth={2.5} />
                 </IconBox>
                 <span className="absolute right-0 top-0 text-[var(--text-primary)]/10 font-black text-4xl group-hover:text-brand-blue/20 transition-colors">{step.num}</span>
