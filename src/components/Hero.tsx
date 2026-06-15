@@ -2,6 +2,7 @@
 
 import HeroBackground from './HeroBackground';
 import { Icon } from './ui/Icon';
+import Image from 'next/image';
 
 
 export default function Hero() {
@@ -27,7 +28,7 @@ export default function Hero() {
               Start a Project
               <Icon size="xs" path="M5 12h14M12 5l7 7-7 7" />
             </a>
-            <a href="#work" className="btn btn-secondary hero-btn-secondary">Explore Our Process</a>
+            <a href="#capabilities" className="btn btn-secondary hero-btn-secondary">Explore Our Process</a>
           </div>
 
           <div className="hero-proof">
@@ -103,9 +104,11 @@ export default function Hero() {
 
           {/* Hero Mockup — single composite image */}
           <div className="hero-mockup">
-            <img
+            <Image
               src="/images/mockup-real.png"
               alt="EeziCodez product showcase — mobile and desktop interfaces"
+              width={800}
+              height={600}
               draggable={false}
             />
             <div className="hero-mockup-shadow"></div>
