@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollObserver from "@/components/ScrollObserver";
 import ThemeProvider from "@/components/ThemeProvider";
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: "EeziCodez Tech | Engineering Excellence",
@@ -48,6 +49,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
