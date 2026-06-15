@@ -1,42 +1,60 @@
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, company, focus, stage, timeline, message, hcaptchaToken } = body;
+    const {
+      name,
+      email,
+      company,
+      focus,
+      stage,
+      timeline,
+      message,
+      hcaptchaToken,
+    } = body;
 
     // Validate required fields
     if (!name || !email || !focus || !stage || !hcaptchaToken) {
       return Response.json(
-        { error: 'Missing required fields or captcha verification' },
-        { status: 400 }
+        { error: "Missing required fields or captcha verification" },
+        { status: 400 },
       );
     }
 
     const hcaptchaSecret = process.env.HCAPTCHA_SECRET;
     if (!hcaptchaSecret) {
-      console.error('Missing HCAPTCHA_SECRET environment variable');
-      return Response.json({ error: 'Server configuration error' }, { status: 500 });
+      console.error("Missing HCAPTCHA_SECRET environment variable");
+      return Response.json(
+        { error: "Server configuration error" },
+        { status: 500 },
+      );
     }
 
     // Verify hCaptcha
     const verifyData = new URLSearchParams();
-    verifyData.append('secret', hcaptchaSecret);
-    verifyData.append('response', hcaptchaToken);
+    verifyData.append("secret", hcaptchaSecret);
+    verifyData.append("response", hcaptchaToken);
 
     try {
-      const captchaRes = await fetch('https://api.hcaptcha.com/siteverify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      const captchaRes = await fetch("https://api.hcaptcha.com/siteverify", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: verifyData.toString(),
       });
       const captchaJson = await captchaRes.json();
-      
+
       if (!captchaJson.success) {
-        console.error('Captcha failed:', captchaJson);
-        return Response.json({ error: 'Captcha verification failed' }, { status: 400 });
+        console.error("Captcha failed:", captchaJson);
+        return Response.json(
+          { error: "Captcha verification failed" },
+          { status: 400 },
+        );
       }
     } catch (e) {
-      console.error('hCaptcha verification error:', e);
-      return Response.json({ error: 'Captcha verification error' }, { status: 500 });
+      console.error("hCaptcha verification error:", e);
+      return Response.json(
+        { error: "Captcha verification error" },
+        { status: 500 },
+      );
     }
 
     const apiKey = process.env.ZEPTOMAIL_API_KEY;
@@ -44,10 +62,10 @@ export async function POST(request: Request) {
     const toAddress = process.env.ZEPTOMAIL_TO;
 
     if (!apiKey || !fromAddress || !toAddress) {
-      console.error('Missing ZeptoMail environment variables');
+      console.error("Missing ZeptoMail environment variables");
       return Response.json(
-        { error: 'Server configuration error' },
-        { status: 500 }
+        { error: "Server configuration error" },
+        { status: 500 },
       );
     }
 
@@ -71,10 +89,14 @@ export async function POST(request: Request) {
               <td style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;">Email</td>
               <td style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); color: #ffffff; font-size: 15px;"><a href="mailto:${email}" style="color: #7b9cf5; text-decoration: none;">${email}</a></td>
             </tr>
-            ${company ? `<tr>
+            ${
+              company
+                ? `<tr>
               <td style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;">Company</td>
               <td style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); color: #ffffff; font-size: 15px;">${company}</td>
-            </tr>` : ''}
+            </tr>`
+                : ""
+            }
             <tr>
               <td style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;">Focus Area</td>
               <td style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); color: #ffffff; font-size: 15px;">${focus}</td>
@@ -85,12 +107,16 @@ export async function POST(request: Request) {
             </tr>
             <tr>
               <td style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;">Timeline</td>
-              <td style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); color: #ffffff; font-size: 15px;">${timeline || 'Not specified'}</td>
+              <td style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); color: #ffffff; font-size: 15px;">${timeline || "Not specified"}</td>
             </tr>
-            ${message ? `<tr>
+            ${
+              message
+                ? `<tr>
               <td style="padding: 12px 0; color: rgba(255,255,255,0.5); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; vertical-align: top;">Message</td>
               <td style="padding: 12px 0; color: #ffffff; font-size: 15px; line-height: 1.6;">${message}</td>
-            </tr>` : ''}
+            </tr>`
+                : ""
+            }
           </table>
         </div>
         <div style="padding: 24px 32px; background: rgba(255,255,255,0.03); border-top: 1px solid rgba(255,255,255,0.06); text-align: center;">
@@ -100,16 +126,16 @@ export async function POST(request: Request) {
     `;
 
     // Send internal notification to team
-    const internalRes = await fetch('https://api.zeptomail.com/v1.1/email', {
-      method: 'POST',
+    const internalRes = await fetch("https://api.zeptomail.com/v1.1/email", {
+      method: "POST",
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': apiKey,
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: apiKey,
       },
       body: JSON.stringify({
-        from: { address: fromAddress },
-        to: [{ email_address: { address: toAddress, name: 'EeziCodez Tech' } }],
+        from: { address: fromAddress, name: "EeziCodez" },
+        to: [{ email_address: { address: toAddress, name: "EeziCodez Tech" } }],
         subject: `New Project Inquiry: ${focus} — ${name}`,
         htmlbody: internalHtml,
       }),
@@ -117,10 +143,10 @@ export async function POST(request: Request) {
 
     if (!internalRes.ok) {
       const errText = await internalRes.text();
-      console.error('ZeptoMail internal email failed:', errText);
+      console.error("ZeptoMail internal email failed:", errText);
       return Response.json(
-        { error: 'Failed to send notification' },
-        { status: 500 }
+        { error: "Failed to send notification" },
+        { status: 500 },
       );
     }
 
@@ -145,7 +171,7 @@ export async function POST(request: Request) {
             <h3 style="margin: 0 0 16px; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #405ca3;">Your Project Summary</h3>
             <p style="margin: 4px 0; font-size: 14px; color: #4a5568;"><strong>Focus:</strong> ${focus}</p>
             <p style="margin: 4px 0; font-size: 14px; color: #4a5568;"><strong>Stage:</strong> ${stage}</p>
-            <p style="margin: 4px 0; font-size: 14px; color: #4a5568;"><strong>Timeline:</strong> ${timeline || 'To be discussed'}</p>
+            <p style="margin: 4px 0; font-size: 14px; color: #4a5568;"><strong>Timeline:</strong> ${timeline || "To be discussed"}</p>
           </div>
           <p style="font-size: 15px; line-height: 1.7; color: #4a5568; margin: 0 0 32px;">
             We'll be in touch shortly to discuss next steps. In the meantime, feel free to explore our <a href="https://eezicodeztech.com/case-studies" style="color: #405ca3; text-decoration: none; font-weight: 600;">case studies</a> to see the kind of work we deliver.
@@ -160,15 +186,15 @@ export async function POST(request: Request) {
       </div>
     `;
 
-    await fetch('https://api.zeptomail.com/v1.1/email', {
-      method: 'POST',
+    await fetch("https://api.zeptomail.com/v1.1/email", {
+      method: "POST",
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': apiKey,
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: apiKey,
       },
       body: JSON.stringify({
-        from: { address: fromAddress },
+        from: { address: fromAddress, name: "EeziCodez" },
         to: [{ email_address: { address: email, name: name } }],
         subject: `EeziCodez — We've received your project brief`,
         htmlbody: confirmationHtml,
@@ -177,10 +203,7 @@ export async function POST(request: Request) {
 
     return Response.json({ success: true });
   } catch (error) {
-    console.error('Send lead error:', error);
-    return Response.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    );
+    console.error("Send lead error:", error);
+    return Response.json({ error: "Internal server error" }, { status: 500 });
   }
 }
